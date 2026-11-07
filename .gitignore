@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+node_modules/
+.next/
+out/
+.wrangler/
+site/
+source-data/raw/
+source-data/assets/
+source-data/images/
+*.xlsx

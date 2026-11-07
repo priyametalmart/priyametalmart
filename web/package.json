@@ -1,0 +1,19 @@
+{
+ "name": "priyametalmart-web",
+ "private": true,
+ "version": "0.1.0",
+ "scripts": {
+  "dev": "next dev -p 3000",
+  "build": "next build",
+  "serve": "npx --yes serve out -l 3000"
+ },
+ "dependencies": {
+  "@fontsource-variable/anek-latin": "^5",
+  "@fontsource-variable/bodoni-moda": "^5.3.0",
+  "@fontsource-variable/hanken-grotesk": "^5.3.0",
+  "@fontsource-variable/jost": "^5.3.0",
+  "next": "16.4.5",
+  "react": "19.2.0",
+  "react-dom": "19.2.0"
+ }
+}

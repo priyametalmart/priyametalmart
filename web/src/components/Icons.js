@@ -1,0 +1,10 @@
+const S = ({ children, size = 22 }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{children}</svg>;
+export const SearchIcon = () => <S><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></S>;
+export const CartIcon = () => <S><path d="M5 8h14l1 13H4L5 8Z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></S>;
+export const HomeIcon = () => <S><path d="m3 11 9-7 9 7" /><path d="M5 10v10h14V10" /></S>;
+export const ShopIcon = () => <S><rect x="4" y="4" width="7" height="7" rx="1" /><rect x="13" y="4" width="7" height="7" rx="1" /><rect x="4" y="13" width="7" height="7" rx="1" /><rect x="13" y="13" width="7" height="7" rx="1" /></S>;
+export const HelpIcon = () => <S><path d="M4 5h16v12H9l-5 4V5Z" /></S>;
+export const CloseIcon = () => <S><path d="M5 5l14 14M19 5 5 19" /></S>;
+export const CashIcon = () => <S size={30}><rect x="2" y="6" width="20" height="12" rx="1" /><circle cx="12" cy="12" r="3" /><path d="M6 10v4M18 10v4" /></S>;
+export const ReturnIcon = () => <S size={30}><path d="M9 7 4 12l5 5" /><path d="M4 12h11a5 5 0 0 1 5 5v1" /></S>;
+export const TruckIcon = () => <S size={30}><path d="M2 6h12v11H2zM14 10h4l4 4v3h-8z" /><circle cx="7" cy="18" r="2" /><circle cx="18" cy="18" r="2" /></S>;
