@@ -5,7 +5,13 @@ import { BRAND, getProduct, productCollection, products, related, settings } fro
 
 export const dynamicParams = false;
 export const generateStaticParams = () => products.map((p) => ({ handle: p.handle }));
-export async function generateMetadata({ params }) { return { title: getProduct((await params).handle).title }; }
+export async function generateMetadata({ params }) {
+  const p = getProduct((await params).handle);
+  const text = p.description || `Buy ${p.title} online from Priya Metal Mart.`;
+  const description = text.length > 160 ? `${text.slice(0, 157).replace(/\s+\S*$/, '')}...` : text;
+  return { title: p.title, description, alternates: { canonical: `/products/${p.handle}/` },
+    openGraph: { title: p.title, description, url: `/products/${p.handle}/`, images: p.image ? [p.image] : undefined } };
+}
 
 export default async function Product({ params }) {
   const p = getProduct((await params).handle);

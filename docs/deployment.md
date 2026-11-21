@@ -51,5 +51,12 @@ therefore produces one deploy.
 ## Custom domain
 
 When the client chooses a domain (for example `priyametalmart.in`), add it under Cloudflare Pages >
-priyametalmart > Custom domains. The `robots` metadata in `web/src/app/layout.js` currently blocks search
-engines. Remove `robots: { index: false, follow: false }` at launch.
+priyametalmart > Custom domains. Search engines are blocked until launch. To open the site to them, add these
+GitHub Actions variables and re-run the deploy:
+
+| Variable | Value |
+| --- | --- |
+| `SITE_URL` | `https://priyametalmart.in` (the real domain) |
+| `SITE_INDEXABLE` | `true` |
+
+This switches `robots.txt` to allow crawling, publishes `sitemap.xml`, and uses the domain in share links.
