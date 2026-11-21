@@ -3,7 +3,7 @@
 // src/data/shopify.json, which the static build reads. Runs before `dev` and `build`.
 //
 // Needs SHOPIFY_STORE_DOMAIN and SHOPIFY_STOREFRONT_PUBLIC_TOKEN (from .env.local or the environment).
-import { readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -128,5 +128,6 @@ const data = {
   pages: pages.nodes,
 };
 
+mkdirSync(dirname(OUT), { recursive: true });
 writeFileSync(OUT, JSON.stringify(data));
 console.log(`Synced ${data.products.length} products, ${data.collections.length} collections, ${data.banners.length} banners from ${DOMAIN}`);
