@@ -27,7 +27,9 @@ export default function ProductCard({ p }) {
         <h3>{p.title}</h3>
       </Link>
       <Price p={p} />
-      {buyable && <button className="addline" aria-label={`Add ${p.title} to cart`} onClick={() => add(p)}>Add to cart</button>}
+      {buyable && (p.variants.length > 1
+        ? <Link className="addline" href={`/products/${p.handle}/`}>Choose size</Link>
+        : <button className="addline" aria-label={`Add ${p.title} to cart`} onClick={() => add(p)}>Add to cart</button>)}
     </article>
   );
 }

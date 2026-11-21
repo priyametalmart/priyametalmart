@@ -1,0 +1,22 @@
+[
+ {
+  "handle": "about-us",
+  "title": "About Us",
+  "html": "<p>Priya Metal Mart brings traditional Indian kitchenware to homes across India. From iron and cast iron cookware to everyday kitchen tools, we choose products that are built to last.</p><p>Good quality, friendly service and honest pricing are what we care about most. Have a question? We are always happy to hear from you.</p>"
+ },
+ {
+  "handle": "faq",
+  "title": "FAQ",
+  "html": "<h3>How do I order?</h3><p>Pick your products, add them to your cart, then go to checkout and enter your delivery address and payment choice.</p><h3>Do I need an account?</h3><p>No. You can check out as a guest or sign in to your account.</p><h3>How will my order reach me?</h3><p>We ship to the address you enter at checkout and send you tracking details by email.</p><h3>What payment options are there?</h3><p>[Confirm with client: UPI, cards, net banking, Cash on Delivery.]</p><h3>Can I return a product?</h3><p>[Confirm with client: return and refund terms.]</p>"
+ },
+ {
+  "handle": "delivery-time",
+  "title": "Delivery Time",
+  "html": "<p>[Confirm with client: order cutoff time and delivery days for Tamil Nadu and other states.]</p><p>Once your order ships, you will get an email with your tracking number.</p>"
+ },
+ {
+  "handle": "payment-delivery-information",
+  "title": "Payment & Delivery Information",
+  "html": "<p>[Confirm with client: accepted payment methods and Cash on Delivery areas.]</p><p>Every order ships with tracking. For delivery questions, write to hello@example.com.</p>"
+ }
+]

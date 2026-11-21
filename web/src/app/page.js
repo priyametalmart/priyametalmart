@@ -3,16 +3,15 @@ import Hero from '@/components/Hero';
 import { CashIcon, ReturnIcon, TruckIcon } from '@/components/Icons';
 import ProductCard from '@/components/ProductCard';
 import Rail from '@/components/Rail';
-import { collectionProducts, getCollection, getProducts, home, menu, percentOff } from '@/lib/data';
+import { collectionProducts, getCollection, menu, percentOff, promoBanners, settings } from '@/lib/data';
 
 export default function Home() {
   const priced = collectionProducts('all').filter((p) => p.price && !p.soldOut && !/cleaver/.test(p.handle));
-  const best = getProducts(home.featured).filter((p) => p.price && !p.soldOut && !/cleaver/.test(p.handle)).slice(0, 4);
+  const best = collectionProducts('best-sellers').filter((p) => p.price && !p.soldOut && !/cleaver/.test(p.handle)).slice(0, 4);
   const used = new Set(best.map((p) => p.handle));
   const popular = priced.filter((p) => !used.has(p.handle)).slice(0, 8);
   const top = Math.max(...priced.map(percentOff));
-  const promos = [['iron-tawa', 'Dosa tawas', 'For crisp dosas and soft chapatis'], ['vegetable-cutter', 'Cutters and scrapers', 'Traditional tools for daily prep']];
-  const kadai = getCollection('iron-kadai');
+  const kadai = getCollection('iron-kadai') ?? menu[0];
   return (
     <>
       <div className="shell top-grid">
@@ -25,10 +24,10 @@ export default function Home() {
       </div>
 
       <section className="shell promos" aria-label="Offers">
-        {promos.map(([h, t, d]) => (
-          <Link key={h} href={`/collections/${h}/`}>
-            <div><h2>{t}</h2><p>{d}</p><span className="btn small">Shop now</span></div>
-            <img src={getCollection(h).image} alt="" loading="lazy" />
+        {promoBanners.map((b) => (
+          <Link key={b.handle} href={`/collections/${b.collection}/`}>
+            <div><h2>{b.heading}</h2>{b.text && <p>{b.text}</p>}<span className="btn small">{b.button_label || 'Shop now'}</span></div>
+            <img src={b.image ?? getCollection(b.collection)?.image} alt="" loading="lazy" />
           </Link>
         ))}
       </section>
@@ -39,7 +38,7 @@ export default function Home() {
       </section>
 
       <section className="shell home-list">
-        <div className="head"><h2>Best sellers</h2><Link href="/collections/frontpage/">View all</Link></div>
+        <div className="head"><h2>Best sellers</h2><Link href="/collections/best-sellers/">View all</Link></div>
         <div className="grid">{best.map((p) => <ProductCard key={p.handle} p={p} />)}</div>
       </section>
 
@@ -58,7 +57,7 @@ export default function Home() {
       <section className="shell trust" aria-label="Why shop with us">
         <div><CashIcon /><p><b>Cash on Delivery</b><span>Pay when it arrives</span></p></div>
         <div><TruckIcon /><p><b>Delivery across India</b><span>Tracked shipping</span></p></div>
-        <div><ReturnIcon /><p><b>Easy returns</b><span>[Confirm return period]</span></p></div>
+        <div><ReturnIcon /><p><b>Easy returns</b><span>{settings.return_period ? `${settings.return_period} returns` : 'See our refund policy'}</span></p></div>
       </section>
     </>
   );

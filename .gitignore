@@ -1,11 +1,27 @@
-.venv/
-__pycache__/
+# Dependencies and build output
 node_modules/
 .next/
 out/
 .wrangler/
-site/
-source-data/raw/
-source-data/assets/
-source-data/images/
+__pycache__/
+.venv/
+
+# Local secrets. Copy web/.env.example to web/.env.local.
+.env*.local
+
+# Generated from Shopify on every build (web/scripts/sync-shopify.mjs)
+web/src/data/shopify.json
+
+# Client working files (spreadsheets can contain private business data)
 *.xlsx
+
+# Archived preview pipeline: large scraped and generated files
+archive/preview-pipeline/site/
+archive/preview-pipeline/source-data/raw/
+archive/preview-pipeline/source-data/assets/
+archive/preview-pipeline/source-data/images/
+
+# Editor and OS files
+.DS_Store
+.vscode/
+.idea/
