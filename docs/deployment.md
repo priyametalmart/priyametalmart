@@ -30,7 +30,8 @@ In GitHub, open **Settings > Secrets and variables > Actions** and add:
 | Secret | `CLOUDFLARE_ACCOUNT_ID` | Cloudflare dashboard > Workers & Pages > Account ID |
 | Secret | `CLOUDFLARE_API_TOKEN` | Cloudflare > My Profile > API Tokens > Create token, using the "Cloudflare Pages: Edit" permission |
 
-Until these are set, the workflow fails at the build step, and the live site isn't changed.
+The Shopify values are required to build. Until both Cloudflare secrets are set, pushes only build (no deploy),
+hourly runs do nothing, and each run shows a warning. The live site isn't changed.
 
 ## Instant updates (optional)
 
